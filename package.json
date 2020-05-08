@@ -1,0 +1,28 @@
+{
+  "name": "todo-sample-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test:int": "cucumber-js test/integration/features --require test/integration/steps",
+    "test:int:dev": "STAGE=dev npm run test:int",
+    "lint": "standard",
+    "unit": "tap --rcfile ./.taprc test/unit/index.test.js",
+    "watch:unit": "nodemon --ignore 'test/report/cucumber_report.json' -e js,json --exec \"npm run unit\"",
+    "kill": " lsof -t -c java | xargs kill -9 &&  lsof -t -c node | xargs kill -9"
+  },
+  "engines": {
+    "node": ">=8.0.0 <11.0.0"
+  },
+  "author": "Tribalscale",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "body-parser": "1.19.0",
+    "cucumber": "5.1.0",
+    "express": "4.17.1",
+    "tap": "13.1.1",
+    "request-promise-native": "1.0.7",
+    "lodash.get": "4.4.2"
+  }
+}
