@@ -5,11 +5,7 @@
   "scripts": {
     "start": "node index.js",
     "test:int": "cucumber-js test/integration/features --require test/integration/steps",
-    "test:int:dev": "STAGE=dev npm run test:int",
-    "lint": "standard",
-    "unit": "tap --rcfile ./.taprc test/unit/index.test.js",
-    "watch:unit": "nodemon --ignore 'test/report/cucumber_report.json' -e js,json --exec \"npm run unit\"",
-    "kill": " lsof -t -c java | xargs kill -9 &&  lsof -t -c node | xargs kill -9"
+    "unit": "tap test/unit/index.test.js"
   },
   "engines": {
     "node": ">=8.0.0 <11.0.0"

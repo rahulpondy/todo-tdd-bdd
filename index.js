@@ -13,9 +13,9 @@ app.use(bodyParser.json())
 app.delete('/item/:name', async (req, res) => {
     const result = deleteItem(req.params.name)
     const message = result ? 'Deleted' : "Item does not exist"
-    const statusCode= result ? 200 : 400
+    const statusCode = result ? 200 : 400
     const body = {
-        msg : message,
+        msg: message,
         items: itemList
     }
     res.status(statusCode)
@@ -25,9 +25,9 @@ app.delete('/item/:name', async (req, res) => {
 app.post('/item/:name', async (req, res) => {
     const result = addItem(req.params.name)
     const message = result ? 'Added' : "Item already exists"
-    const statusCode= result ? 200 : 400
+    const statusCode = result ? 200 : 400
     const body = {
-        msg : message,
+        msg: message,
         items: itemList
     }
     res.status(statusCode)
@@ -35,7 +35,7 @@ app.post('/item/:name', async (req, res) => {
 })
 
 function addItem(item) {
-    if(itemList.indexOf(item) > -1){
+    if (itemList.indexOf(item) > -1) {
         return false
     }
     itemList.push(item)
@@ -43,7 +43,7 @@ function addItem(item) {
 }
 
 function deleteItem(item) {
-    if(itemList.indexOf(item) < 0){
+    if (itemList.indexOf(item) < 0) {
         return false
     }
     itemList.pop(item)
